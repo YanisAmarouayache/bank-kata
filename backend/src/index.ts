@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import bankRoutes from "./src/infrastructure/routes/bankRoutes.ts";
+import bankRoutes from './infrastructure/routes/bankRoutes';
 
 dotenv.config();
 const app = express();
