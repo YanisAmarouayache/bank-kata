@@ -4,7 +4,7 @@ import { depositMoney, getBalance, withdrawMoney } from "../controllers/bankCont
 const router = express.Router();
 
 router.get("/balance", getBalance);
-// router.post("/deposit", depositMoney);
-// router.post("/withdraw", withdrawMoney);
+router.post("/deposit", depositMoney);
+router.post("/withdraw", withdrawMoney);
 
 export default router;
