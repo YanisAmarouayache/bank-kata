@@ -1,4 +1,4 @@
-import './App.css'
+import Balance from './components/Balance'
 import TestComponent from './components/TestComponent'
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <TestComponent />
+      <Balance />
     </div>
   )
 }
