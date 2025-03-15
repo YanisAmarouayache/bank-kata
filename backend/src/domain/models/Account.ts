@@ -1,4 +1,6 @@
-class Account {
+import { Transaction } from "./Transaction";
+
+export class Account {
     private transactions: Transaction[] = [];
 
     deposit(amount: number) {

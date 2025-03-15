@@ -1,4 +1,7 @@
-class BankService {
+import { Account } from "../models/Account";
+import { Transaction } from "../models/Transaction";
+
+export class BankService {
     private account = new Account();
     deposit(amount: number) {
         this.account.deposit(amount);
@@ -9,7 +12,7 @@ class BankService {
     
     printStatement(){
         let balance=0;
-        this.account.getHistory().forEach((transaction) => {
+        this.account.getHistory().forEach((transaction: Transaction) => {
             balance += transaction.amount;
             console.log(`Transaction: ${transaction.type}, Amount: ${transaction.amount}, Balance: ${balance}`)
         })    

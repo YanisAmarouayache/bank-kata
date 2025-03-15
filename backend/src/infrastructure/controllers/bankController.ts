@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { BankService } from "../../domain/services/bankService";
 const bankService = new BankService();
 
 export const getBalance = (req : Request, res: Response) => {
@@ -13,7 +14,7 @@ export const depositMoney = (req: Request, res: Response) => {
     }
 
     bankService.deposit(amount);
-    res.json({ message: "Deposit successful", newBalance: bankService.getBalance() });
+    return res.json({ message: "Deposit successful", newBalance: bankService.getBalance() });
 };
 
 export const withdrawMoney = (req: Request, res: Response) => {
