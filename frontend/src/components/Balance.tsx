@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
-import { getBalance } from "../services/bank-api";
 import { Card, CardContent, Typography } from "@mui/material";
 
-const Balance = () => {
-    const [balance, setBalance] = useState(0);
+const Balance = ({ balance }: { balance: number }) => {
 
-    useEffect(() => {
-        getBalance().then(response => setBalance(response));
-    }, [])
 
     return (
         <Card>

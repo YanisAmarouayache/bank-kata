@@ -37,6 +37,10 @@ export const withdrawMoney = (req: Request, res: Response) => {
     }
 }
 
+export const printStatements = (req: Request, res: Response) => {
+    res.json(bankService.printStatements());
+}
+
 function isValidAmount(amount: any): boolean {
     return typeof amount === 'number' && amount > 0;
 }
