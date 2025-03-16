@@ -1,45 +1,38 @@
-import { useEffect, useState } from 'react';
-import Balance from './components/Balance'
-import Transactions from './components/Transactions'
-import History, { Statement } from './components/History';
-import { deposit, getBalance, printStatements, withdraw } from './services/bank-api';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import Home from './pages/Home';
+import Header from './components/Header';
 
 function App() {
-  const [withdrawAmount, setWithdrawAmount] = useState(0);
-  const [depositAmount, setDepositAmount] = useState(0);
-  const [balance, setBalance] = useState(0);
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#1976d2',
+      },
+      secondary: {
+        main: '#ff4081',
+      },
+    },
+    typography: {
+      h6: {
+        fontWeight: 500,
+      },
+      h5: {
+        fontWeight: 700,
+      },
+      h4: {
+        fontWeight: 700,
+      },
+    },
+  });
 
-  const [statements, setStatements] = useState<Statement[]>([]);
-  useEffect(() => { }, [])
-
-
-  useEffect(() => { refetchBalance() }, [])
-
-  const handleDeposit = (e: React.ChangeEvent<HTMLInputElement>) => setDepositAmount(Number(e.target.value))
-  const handleWithdrawal = (e: React.ChangeEvent<HTMLInputElement>) => setWithdrawAmount(Number(e.target.value))
-
-  const handleTransaction = (type: "deposit" | "withdrawal") => {
-    if (type === "deposit") {
-      deposit(depositAmount).then(refetchBalance).then(refecthStatements).catch(error => console.error(error))
-      setDepositAmount(0);
-    }
-    if (type === "withdrawal") {
-      withdraw(withdrawAmount).then(refetchBalance).then(refecthStatements).catch(error => console.error(error));
-      setWithdrawAmount(0);
-    }
-  }
-
-  const refetchBalance = () => getBalance().then(response => setBalance(response))
-
-  const refecthStatements = () => printStatements().then((response) => setStatements(response))
-
-  return (
-    <div>
-      <Transactions depositAmount={depositAmount} withdrawAmount={withdrawAmount} handleDeposit={handleDeposit} handleWithdrawal={handleWithdrawal} handleTransaction={handleTransaction} />
-      <Balance balance={balance} />
-      <History statements={statements} />
-    </div>
-  )
+  return (<>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header />
+      <Home />
+    </ThemeProvider>
+  </>
+  );
 }
 
-export default App
+export default App;
