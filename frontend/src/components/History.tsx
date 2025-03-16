@@ -9,9 +9,9 @@ export interface Statement {
 
 const History = ({ statements }: { statements: Statement[] }) => {
     return (
-        <Card sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }} variant="outlined">
+        <Card sx={{ height: 300, width: 500, overflow: 'auto', display: 'flex', justifyContent: 'center', flexDirection: 'column' }} variant="outlined">
             <Typography textAlign="center" variant="h5">History</Typography>
-            <TableContainer component={Paper}>
+            <TableContainer sx={{}} component={Paper}>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -27,10 +27,10 @@ const History = ({ statements }: { statements: Statement[] }) => {
                                 key={index}
                             >
                                 <TableCell>{new Date(statement.date).toLocaleString("fr-FR")}</TableCell>
-                                <TableCell component="th" scope="row">
+                                <TableCell>
                                     {statement.transaction}
                                 </TableCell>
-                                <TableCell>{statement.amount}</TableCell>
+                                <TableCell sx={{ color: statement.amount > 0 ? "green" : 'red' }}>{statement.amount}</TableCell>
                                 <TableCell>{statement.balance}</TableCell>
                             </TableRow>
                         ))}
