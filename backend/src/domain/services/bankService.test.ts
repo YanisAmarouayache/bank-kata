@@ -44,6 +44,7 @@ describe('BankService', () => {
 
   it('should print transaction statement correctly', () => {
     // Given
+    const date = new Date();
     bankService.deposit(200);
     bankService.withdraw(50);
     bankService.deposit(150);
@@ -53,9 +54,9 @@ describe('BankService', () => {
 
     // Then
     expect(statements).toEqual([
-      {transaction: 'DEPOSIT', amount: 200, balance: 200},
-      {transaction: 'WITHDRAWAL', amount: -50, balance: 150},
-      {transaction: 'DEPOSIT', amount: 150, balance: 300},
+      {date, transaction: 'DEPOSIT', amount: 200, balance: 200},
+      {date, transaction: 'WITHDRAWAL', amount: -50, balance: 150},
+      {date, transaction: 'DEPOSIT', amount: 150, balance: 300},
     ]);
   });
 

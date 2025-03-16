@@ -1,6 +1,7 @@
 import { Card, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 
 export interface Statement {
+    date: Date;
     transaction: "DEPOSIT" | "WITHDRAWAL"
     amount: number;
     balance: number;
@@ -14,6 +15,7 @@ const History = ({ statements }: { statements: Statement[] }) => {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell>Date</TableCell>
                             <TableCell>Transaction type</TableCell>
                             <TableCell >Amount</TableCell>
                             <TableCell>Balance</TableCell>
@@ -24,6 +26,7 @@ const History = ({ statements }: { statements: Statement[] }) => {
                             <TableRow
                                 key={index}
                             >
+                                <TableCell>{new Date(statement.date).toLocaleString("fr-FR")}</TableCell>
                                 <TableCell component="th" scope="row">
                                     {statement.transaction}
                                 </TableCell>
