@@ -5,6 +5,7 @@ import { Statement } from '../components/History';
 import History from '../components/History';
 import Transactions from '../components/Transactions';
 import { getBalance, printStatements, deposit, withdraw } from '../services/bank-api';
+import BasicLineChart from '../components/Chart';
 
 function App() {
     const [withdrawAmount, setWithdrawAmount] = useState(0);
@@ -51,8 +52,11 @@ function App() {
                 <Grid2 size={12}>
                     <Balance balance={balance} />
                 </Grid2>
-                <Grid2 size={12}>
-                    <History statements={statements} />
+                <Grid2 size={12} container justifyContent={'center'} spacing={4}>
+                    <Grid2 size={6}>
+                        <History statements={statements} />
+                    </Grid2>
+                    <BasicLineChart statements={statements} />
                 </Grid2>
             </Grid2>
         </Container>
