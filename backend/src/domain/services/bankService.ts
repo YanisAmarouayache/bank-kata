@@ -24,10 +24,10 @@ export class BankService {
 
   printStatements() {
     let balance = 0;
-    const statements: { transaction: "DEPOSIT" | "WITHDRAWAL"; amount: number; balance: number; }[] = [];
+    const statements: { date: Date, transaction: "DEPOSIT" | "WITHDRAWAL"; amount: number; balance: number; }[] = [];
     this.account.getHistory().forEach((transaction: Transaction) => {
       balance += transaction.amount;
-      statements.push({transaction : transaction.type, amount: transaction.amount, balance: balance})
+      statements.push({date: transaction.date, transaction : transaction.type, amount: transaction.amount, balance: balance})
     })
     return statements;
   }
