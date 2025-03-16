@@ -1,54 +1,143 @@
-# React + TypeScript + Vite
+# Bank Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Cette application de banque en ligne permet aux utilisateurs de visualiser leur solde, consulter leurs relevés, et voir l'historique des transactions. L'interface est construite en React et utilise Material-UI pour le stylisme.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Clonez le dépôt
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   ```bash
+   git clone https://github.com/votre-repo/bank-application.git
+Accédez au dossier du projet
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+   ```bash
+cd bank-application/frontend
+```
+Installez les dépendances
+   ```bash
+npm install
+```
+Usage
+Pour démarrer l'application en mode développement, utilisez la commande suivante :
+   ```bash
+npm start
+```
+Ouvrez http://localhost:3000 pour voir l'application dans votre navigateur.
+
+Structure du projet
+frontend/
+Voici un exemple de fichier README pour votre projet "bank-kata". Ce README fournit des informations sur le projet, comment le configurer, ainsi que les instructions pour l'exécution et le développement.
+
+---
+
+# Bank Kata
+
+## Description
+
+Bank Kata est une application de gestion bancaire créée avec React et stylisée avec Material-UI. Elle permet aux utilisateurs de voir leur solde, voir leurs relevés et consulter l'historique des transactions.
+
+## Installation
+
+### Prérequis
+
+- Node.js
+- npm (ou yarn)
+
+### Étapes
+
+1. Clonez le repository :
+
+```bash
+git clone <your-repository-url>
+cd bank-kata
+```
+Installez les dépendances :
+```bash
+npm install
+```
+Démarrez l'application :
+```bash
+npm start
+```
+Structure des fichiers
+Le projet est structuré comme suit :
+```
+bank-kata/
+├── package.json
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Balance.tsx
+│   │   ├── History.tsx
+│   ├── pages/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Balance.tsx
+│   │   ├── History.tsx
+│   ├── context/
+│   │   └── BankContext.tsx
+│   ├── pages/
+│   │   ├── Home.tsx
+│   ├── App.tsx
+│   ├── index.tsx
+└── package.json
+```
+## Usage
+
+### Composants
+
+- **Header.tsx** : Affiche l'en-tête de l'application.
+- **Balance.tsx** : Affiche le solde du compte.
+- **History.tsx** : Affiche l'historique des transactions.
+
+
+### Pages
+
+- **Home.tsx** : Page d'accueil de l'application, contenant les composants `Balance` et `History`.
+
+### Services
+
+- **bankService.ts** : Fournit les fonctions pour récupérer les données de l'API.
+
+## Thème
+
+Le thème de l'application est configuré dans le fichier `App.tsx` en utilisant `createTheme` de Material-UI :
+
+```typescript
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#ff4081',
     },
   },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
+  typography: {
+    h6: {
+      fontWeight: 500,
+    },
+    h5: {
+      fontWeight: 700,
+    },
+    h4: {
+      fontWeight: 700,
+    },
   },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+});
 ```
+## Contributions
+Les contributions sont les bienvenues ! Veuillez ouvrir une issue pour discuter de ce que vous souhaitez changer.
+
+## Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus d'informations.
+
+## Contact
+Pour toute question, vous pouvez me contacter à votre-email@example.com.
