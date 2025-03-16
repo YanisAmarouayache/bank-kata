@@ -1,13 +1,14 @@
+
 import { Card, CardContent, Typography } from "@mui/material";
 
 const Balance = ({ balance }: { balance: number }) => {
 
 
     return (
-        <Card>
-            <CardContent>
-                <Typography variant="h5">Solde :</Typography>
-                <Typography variant="h3">{balance}</Typography>
+        <Card variant='outlined'>
+            <CardContent >
+                <Typography textAlign="center" variant="h5">Balance</Typography>
+                <Typography textAlign="center" variant="h4" color="primary">€{balance}</Typography>
             </CardContent>
         </Card>
     )
