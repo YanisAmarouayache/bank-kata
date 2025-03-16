@@ -2,19 +2,6 @@ import { Account } from '../models/Account';
 import { Transaction } from '../models/Transaction';
 import { BankService } from './bankService';
 
-// Mocking console.log to capture print statement output
-const originalConsoleLog = console.log;
-let consoleOutput: string[];
-
-beforeEach(() => {
-  consoleOutput = [];
-  console.log = (output: string) => consoleOutput.push(output);
-});
-
-afterAll(() => {
-  console.log = originalConsoleLog;
-});
-
 describe('BankService', () => {
   let bankService: BankService;
 
@@ -62,13 +49,13 @@ describe('BankService', () => {
     bankService.deposit(150);
 
     // When
-    bankService.printStatement();
+    const statements = bankService.printStatements();
 
     // Then
-    expect(consoleOutput).toEqual([
-      'Transaction: DEPOSIT, Amount: 200, Balance: 200',
-      'Transaction: WITHDRAWAL, Amount: -50, Balance: 150',
-      'Transaction: DEPOSIT, Amount: 150, Balance: 300'
+    expect(statements).toEqual([
+      {transaction: 'DEPOSIT', amount: 200, balance: 200},
+      {transaction: 'WITHDRAWAL', amount: -50, balance: 150},
+      {transaction: 'DEPOSIT', amount: 150, balance: 300},
     ]);
   });
 
