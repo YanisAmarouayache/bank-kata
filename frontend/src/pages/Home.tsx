@@ -72,8 +72,8 @@ function App() {
                 <Grid2 size={12}>
                     <Balance balance={balance} />
                 </Grid2>
-                <Grid2 size={12} container justifyContent={'center'} spacing={4}>
-                    <Grid2 size={6}>
+                <Grid2 size={12} container justifyContent="center" alignItems="flex-start" spacing={4}>
+                    <Grid2  size={6}>
                         <History statements={statements} />
                     </Grid2>
                     <BasicLineChart statements={statements} />
