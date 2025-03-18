@@ -10,13 +10,12 @@ interface TransactionProps {
 
 const Transactions: React.FC<TransactionProps> = ({ depositAmount, withdrawAmount, handleDeposit, handleWithdrawal, handleTransaction }) => {
     return (
-        <Grid2 container justifyContent={"center"}
-            direction="row" spacing={2}>
+        <Grid2 container textAlign="center" justifyContent={"center"} marginTop={2} direction="row" spacing={2}>
             <Card variant="outlined">
+                <Typography sx={{ padding: 1, backgroundColor: "#f5f5f5", borderBottom: "1px solid #ddd" }} padding={3} variant="h5">
+                    Deposit
+                </Typography>
                 <CardContent>
-                    <Typography padding={3} variant="h4">
-                        Deposit
-                    </Typography>
                     <TextField
                         slotProps={{
                             input: {
@@ -35,10 +34,10 @@ const Transactions: React.FC<TransactionProps> = ({ depositAmount, withdrawAmoun
                 </CardActions>
             </Card>
             <Card variant="outlined">
+                <Typography sx={{ padding: 1, backgroundColor: "#f5f5f5", borderBottom: "1px solid #ddd" }} padding={3} variant="h5">
+                    Withdraw
+                </Typography>
                 <CardContent>
-                    <Typography padding={3} variant="h4">
-                        Withdraw
-                    </Typography>
                     <TextField
                         slotProps={{
                             input: {

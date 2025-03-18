@@ -12,7 +12,7 @@ export default function BalanceChart({ statements }: BalanceChartProps) {
 
     return (
         <Card sx={{ height: 300, overflow: 'auto', display: 'flex', justifyContent: 'center', flexDirection: 'column' }} variant="outlined">
-            <Typography textAlign="center" variant="h5">Chart</Typography>
+            <Typography textAlign="center" sx={{ padding: 1, backgroundColor: "#f5f5f5", borderBottom: "1px solid #ddd" }} padding={3} variant="h5">Chart</Typography>
             <LineChart
                 xAxis={[{ data: xAxisData, label: 'Operations' }]}
                 series={[{ data, label: 'Balance' }]}
